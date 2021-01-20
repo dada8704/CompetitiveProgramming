@@ -53,6 +53,11 @@ int main(void)
         for(auto iter_Num = 0; iter_Num < 2 * Num; iter_Num++)
         {
             cin >> row >> column >> peak_remove;
+
+            if(flag)
+                continue;
+
+
             now[row - 1][column - 1] = (peak_remove == '+');
             
 
