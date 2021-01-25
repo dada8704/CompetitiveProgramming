@@ -30,14 +30,14 @@ public:
     Engine(Engine&& x) : CC(x.CC), type(x.type), weight(x.weight) 
     {
     	std::cout << "move constrution!!" << std::endl;
-    	x.CC = -1, x.type = "fuck", x.weight = -1;
+    	x.CC = -1, x.type = "", x.weight = -1;
     }
     //move assignment
     Engine& operator= (Engine&& x)
     {
     	std::cout << "move assignment" << std::endl;
     	this->CC = x.CC, this->type = x.type, this->weight = x.weight;
-    	x.CC = -1, x.type = "fuck", x.weight = -1;
+    	x.CC = -1, x.type = "", x.weight = -1;
     	return *this;
     }
 
@@ -51,9 +51,7 @@ int main(void)
 {
     Engine A(1, "jhhlab", 8);
     A.Print();
-    Engine B; // B = A;
-    //B.Print();
-    //std::cout << "assignment:   " << std::endl;   
+    Engine B;  
     B = std::move(Engine(3, "haha", 9));
     B.Print();
 }
