@@ -4,6 +4,17 @@
 
 int main(void)
 {
+    for(long long int S, D; (std::cin >> S >> D) && S && D;)
+    {
+        while((D-=S) > 0)
+            ++S;
+        std::cout << S << std::endl;
+    }
+}
+
+/*
+int main(void)
+{
     for(unsigned long long int S, D; (std::cin >> S >> D) && S && D;)
     {
         auto target = 2 * D + S * (S - 1);
@@ -16,7 +27,6 @@ int main(void)
 }
 
 
-/*
 
 1 6
 3 10
@@ -31,8 +41,6 @@ int main(void)
 5 5
 5 6
 5 7
-
-
 3
 5
 6
@@ -46,7 +54,5 @@ int main(void)
 5
 6
 6
-
-
 
 */
