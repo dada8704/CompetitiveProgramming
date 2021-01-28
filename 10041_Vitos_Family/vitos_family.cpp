@@ -10,7 +10,7 @@ int main(void)
     cin >> test_case;
     while(test_case--)
     {
-        int relative;
+        int relative, dis = 0;
         cin >> relative;
         vector<int> vec;
         int S;
@@ -19,20 +19,20 @@ int main(void)
             cin >> S;
             vec.push_back(S);
         }
-        std::sort(vec.begin(), vec.end());
-        int total = 0 - vec[0];
-        for(auto i = 1; i < relative; ++i)
-            total += vec[i];
-        int jimmy = 2 - relative;
-        int min = total + jimmy * vec[0];
-        for(auto i = 1; i < relative; ++i)
-        {
-            jimmy += 2;
-            total -= 2 * vec[i];
-            int now = total + jimmy * vec[i];
-            if(now < min)
-                min = now;
-        }
-        cout << min << endl;
+        std::nth_element(vec.begin(), vec.begin() + vec.size() / 2, vec.end());
+
+        for(const auto& item : vec)
+            dis += abs(item - vec[relative/2]);
+        cout << dis << endl;
+
     }
 }
+
+
+/*
+
+
+10 30 25 15 1 1 1 23 23 90 10
+
+
+*/
